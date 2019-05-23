@@ -14,4 +14,12 @@ class Show < ActiveRecord::Base
   def self.least_popular_show
     where('rating = ?', lowest_rating)[0]
   end
+
+  def self.ratings_sum
+    sum(:rating)
+  end
+
+  def self.popular_shows
+    where('rating > ?', 5)
+  end
 end
